@@ -58,10 +58,10 @@ esPeligroso(Campeon):-
 
 %4
 %estaRoto/1 campeon
+estaRoto(maestroYi).
 estaRoto(Campeon):-
     esTanque(Campeon),
     esPeligroso(Campeon).
-estaRoto(maestroYi).
 
 
 %5
@@ -111,7 +111,7 @@ cantidadDe(Rol, Cantidad):-
 %promedioVidaInicial/2 rol, promedio
 promedioVidaInicial(Rol, Promedio):-
     rol(_, Rol), % <- Generador, acota el universo
-    findall(Vida, VidaInicialDe(Rol, Vida), Vidas),
+    findall(Vida, vidaInicialDe(Rol, Vida), Vidas),
     promedio(Vidas, Promedio).
 
 %vidaInicialDe/2 rol, vida
@@ -126,4 +126,7 @@ promedio(Numeros, Promedio):-
     Promedio is Suma / Cantidad.
 
 
-%11 QUEDA DE TAREA
+%11
+% rolesExistentes/1 roles
+rolesExistentes(Roles):-
+    setof(Rol, Campeon^rol(Campeon, Rol), Roles).
