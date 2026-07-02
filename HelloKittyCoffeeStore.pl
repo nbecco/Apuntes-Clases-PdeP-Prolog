@@ -39,7 +39,7 @@
 
 % 5)
     realizaPedidoCaro(Cliente):-
-        Personaje(Cliente),
+        personaje(Cliente),
         forall(pedido(Cliente, Pedido), esCaro(Pedido)).
 
     esCaro(Pedido) :- 
